@@ -45,9 +45,11 @@ public class GuideActivity extends BaseActivity {
     private void initData() {
         int[] image = {R.drawable.guide_1,R.drawable.guide_2,R.drawable.guide_3};
         for (int i=0;i<image.length;i++){
+            //添加背景图片
             ImageView imageView = new ImageView(this);
             imageView.setBackgroundResource(image[i]);
             imageViews.add(imageView);
+            //添加灰色的点
             ImageView point = new ImageView(this);
             point.setBackgroundResource(R.drawable.point_normal);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(DensityUtil.dip2px(10),DensityUtil.dip2px(10));
@@ -65,6 +67,12 @@ public class GuideActivity extends BaseActivity {
 
     private void setListener() {
         viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            /**
+             * 当页面回调了会回调这个方法
+             * @param position 当前滑动页面的位置
+             * @param positionOffset 页面滑动的百分比
+             * @param positionOffsetPixels 滑动的像数
+             */
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 redParams.leftMargin = (int) ((position+positionOffset)*DensityUtil.dip2px(20)+DensityUtil.dip2px(5));
@@ -112,6 +120,13 @@ public class GuideActivity extends BaseActivity {
             container.removeView((View) object);
         }
 
+        /**
+         * 作用，getView
+         *
+         * @param container ViewPager
+         * @param position 要创业页面的位置
+         * @return 返回和创建当前页面右关系的值
+         */
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             ImageView iv = imageViews.get(position);
