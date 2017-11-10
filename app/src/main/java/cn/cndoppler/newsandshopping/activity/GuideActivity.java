@@ -19,6 +19,7 @@ import butterknife.ButterKnife;
 import cn.cndoppler.newsandshopping.R;
 import cn.cndoppler.newsandshopping.comment.BaseActivity;
 import cn.cndoppler.newsandshopping.utils.DensityUtil;
+import cn.cndoppler.newsandshopping.utils.SPUtils;
 
 public class GuideActivity extends BaseActivity {
 
@@ -81,12 +82,28 @@ public class GuideActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int position) {
+                if(position==imageViews.size()-1){
+                    //最后一个页面
+                    btnStartMain.setVisibility(View.VISIBLE);
+                }else{
+                    //其他页面
+                    btnStartMain.setVisibility(View.GONE);
+                }
 
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
 
+            }
+        });
+        btnStartMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(MainActivity.class);
+                removeCurrentActivity();
+                //保存到本地，标记为已经进入过引导页
+                SPUtils.put("toMian",true);
             }
         });
     }

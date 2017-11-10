@@ -17,12 +17,12 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="80dp"
-        android:background="@drawable/btn_start_main_textcolor_selector"
+        android:background="@drawable/btn_guide_start_mian_selector"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:text="开始体验"
         android:visibility="gone"
-        android:textColor="@drawable/btn_start_main_textcolor_selector"
+        android:textColor="@drawable/btn_guide_start_main_textcolor_selector"
         android:textSize="20sp" />
 
 
