@@ -4,6 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
+import org.xutils.BuildConfig;
+import org.xutils.x;
+
 /**
  * Created by Administrator on 2017/8/28 0028.
  */
@@ -28,6 +31,8 @@ public class BaseApplication extends Application {
         mainThreadId = android.os.Process.myTid();//获取当前线程的id
         //初始化全局捕捉异常
         //CrashHandler.getInstance().init();
+        x.Ext.init(this);
+        x.Ext.setDebug(BuildConfig.DEBUG); // 是否输出debug日志, 开启debug会影响性能.
     }
 
 }
